@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-pink-50: #fff5f6;
+  --brand-pink-100: #ffe6e9;
+  --brand-pink-200: #ffd1d7;
+  --brand-pink-300: #ffadb8;
+  --brand-pink-400: #ff7a8d;
+  --brand-pink-500: #f45b69;
+  --brand-pink-600: #e13b4c;
+  --brand-pink-700: #bd2d3c;
+  --near-black: #1a1a1a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-[#1a1a1a] bg-white selection:bg-[#ffd1d7];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-sans;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 md:px-6;
+  }
+}
