@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Story | Texas Coffee Traders",
-  description: "Learn about the heritage of Texas Coffee Traders. Roasting small-batch specialty coffee in East Austin since 1994.",
+  title: "About Harry Lewis",
+  description: "Learn about Harry Lewis, a senior real estate consultant in Dallas with over 15 years of experience and $750M+ in sales volume.",
 };
 
-export default function AboutLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
-}
+import AboutPage from "./page";
+export default AboutPage;

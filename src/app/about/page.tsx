@@ -1,193 +1,167 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Coffee, Award, Users, Globe, ShieldCheck } from "lucide-react";
+import { agentDetails } from "@/lib/data";
+import { Award, CheckCircle2, ShieldCheck, TrendingUp, Users, Heart } from "lucide-react";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-const stats = [
-  { icon: <Coffee className="w-6 h-6" />, value: "100+", label: "Coffee Varieties" },
-  { icon: <Award className="w-6 h-6" />, value: "30+", label: "Years Roasting" },
-  { icon: <Users className="w-6 h-6" />, value: "50k+", label: "Happy Customers" },
-  { icon: <Globe className="w-6 h-6" />, value: "20+", label: "Direct Trade Partners" },
-];
-
-export default function About() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".reveal", {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".reveal",
-          start: "top 85%",
-          toggleActions: "play none none none"
-        }
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
+export default function AboutPage() {
+  const values = [
+    {
+      title: "Integrity First",
+      description: "We believe in honest communication and transparent transactions, putting your interests above all else.",
+      icon: ShieldCheck
+    },
+    {
+      title: "Market Expertise",
+      description: "Deep knowledge of Dallas neighborhoods ensures you get the best value, whether buying or selling.",
+      icon: TrendingUp
+    },
+    {
+      title: "Client Focused",
+      description: "Every client is unique. We tailor our approach to meet your specific goals and lifestyle needs.",
+      icon: Users
+    },
+    {
+      title: "Community Driven",
+      description: "We don't just sell homes; we build communities. A portion of every sale goes back to local Dallas charities.",
+      icon: Heart
+    }
+  ];
 
   return (
-    <main className="flex-1" ref={containerRef}>
+    <main className="min-h-screen bg-white pt-24">
       <Navbar />
 
-      {/* About Hero */}
-      <section className="relative py-24 md:py-32 bg-brand-pink-50 overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <SectionHeading
-            title="Our Story: From Bean to Cup"
-            subtitle="About Us"
-            centered
-            className="mb-8"
-          />
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Founded in 1994, Texas Coffee Traders began with a simple mission: to bring the world&apos;s finest coffees to the heart of Austin, one small batch at a time.
-          </p>
-        </div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-brand-pink-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-brand-pink-500 rounded-full blur-3xl"></div>
-        </div>
-      </section>
-
-      {/* Mission Section */}
-      <section className="py-24 bg-white">
+      {/* Hero Section */}
+      <section className="py-20 bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="reveal">
-              <SectionHeading
-                title="A Commitment to Craft and Community"
-                subtitle="Our Mission"
-              />
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  At Texas Coffee Traders, we believe coffee is more than just a morning ritual—it&apos;s a craft that connects global farmers with our local neighborhood. We travel the world to source the highest quality green beans, ensuring fair trade practices and sustainable farming.
-                </p>
-                <p>
-                  Every bean is roasted daily in our East Austin facility, where we combine traditional techniques with modern precision to unlock the unique flavor profile of every origin.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-8 mt-12">
-                {stats.map((stat, i) => (
-                  <div key={i} className="flex items-center space-x-4">
-                    <div className="w-12 h-12 rounded-xl bg-brand-pink-100 flex items-center justify-center text-brand-pink-600">
-                      {stat.icon}
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-near-black">{stat.value}</div>
-                      <div className="text-sm text-gray-500 font-medium">{stat.label}</div>
-                    </div>
-                  </div>
-                ))}
+            <div>
+              <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase text-brand-orange-700 bg-brand-orange-100 rounded-full">
+                Our Story
+              </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-near-black mb-8 leading-tight">
+                Experience, Dedication, <span className="text-brand-orange-500">Results.</span>
+              </h1>
+              <p className="text-xl text-gray-600 leading-relaxed mb-10">
+                Harry Real Estate was founded on the principle that real estate is more than just a transaction — it&apos;s about people, their dreams, and their futures.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 bg-white px-6 py-4 rounded-2xl shadow-sm border border-gray-100">
+                  <Award className="text-brand-orange-500" size={24} />
+                  <span className="font-bold text-near-black">15+ Years Experience</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white px-6 py-4 rounded-2xl shadow-sm border border-gray-100">
+                  <Users className="text-brand-orange-500" size={24} />
+                  <span className="font-bold text-near-black">500+ Happy Clients</span>
+                </div>
               </div>
             </div>
-            <div className="reveal relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&q=80&w=1000"
-                alt="Roasting coffee beans"
-                fill
-                className="object-cover"
-              />
+            <div className="relative">
+              <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl z-10">
+                <Image
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000"
+                  alt="Harry Lewis - Senior Real Estate Consultant"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-10 -right-10 w-2/3 h-2/3 bg-brand-orange-500 rounded-[3rem] -z-10 opacity-10" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-24 bg-brand-pink-50">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <SectionHeading
-            title="What We Stand For"
-            subtitle="Our Values"
-            centered
-          />
-          <div className="grid md:grid-cols-3 gap-12 mt-16">
-            <div className="reveal bg-white p-10 rounded-2xl shadow-sm border border-brand-pink-100">
-              <div className="w-16 h-16 bg-brand-pink-100 rounded-full flex items-center justify-center text-brand-pink-600 mx-auto mb-8">
-                <ShieldCheck size={32} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Quality First</h3>
-              <p className="text-gray-600 leading-relaxed">
-                We never compromise on quality. From sourcing to brewing, every step is executed with meticulous attention to detail.
+      {/* Bio Section */}
+      <section className="py-24 md:py-32">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeading
+              title="Meet Harry Lewis"
+              subtitle="The Agent"
+              centered
+            />
+            <div className="space-y-8 text-lg text-gray-600 leading-relaxed">
+              <p>
+                {agentDetails.bio}
+              </p>
+              <p>
+                Since 2009, I have witnessed Dallas transform into one of the most dynamic real estate markets in the country. My mission is to help my clients navigate this complexity with ease, providing the data-driven insights they need to make confident decisions.
+              </p>
+              <p>
+                Whether you are a first-time homebuyer looking for a bungalow in Lakewood or a seasoned investor seeking a penthouse in Uptown, I bring the same level of passion and professionalism to every deal.
               </p>
             </div>
-            <div className="reveal bg-white p-10 rounded-2xl shadow-sm border border-brand-pink-100">
-              <div className="w-16 h-16 bg-brand-pink-100 rounded-full flex items-center justify-center text-brand-pink-600 mx-auto mb-8">
-                <Globe size={32} />
+
+            <div className="mt-16 grid sm:grid-cols-2 gap-8">
+              <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
+                <h3 className="text-xl font-bold text-near-black mb-6 flex items-center">
+                  <Award className="text-brand-orange-500 mr-3" size={24} /> Credentials
+                </h3>
+                <ul className="space-y-4">
+                  {agentDetails.certifications.map((cert, i) => (
+                    <li key={i} className="flex items-start">
+                      <CheckCircle2 className="text-brand-orange-500 mr-3 shrink-0 mt-1" size={18} />
+                      <span className="text-gray-700 font-medium">{cert}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Sustainability</h3>
-              <p className="text-gray-600 leading-relaxed">
-                We prioritize Organic, Fair Trade, and Bird Friendly certifications to support the health of our planet and its people.
-              </p>
-            </div>
-            <div className="reveal bg-white p-10 rounded-2xl shadow-sm border border-brand-pink-100">
-              <div className="w-16 h-16 bg-brand-pink-100 rounded-full flex items-center justify-center text-brand-pink-600 mx-auto mb-8">
-                <Users size={32} />
+              <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
+                <h3 className="text-xl font-bold text-near-black mb-6 flex items-center">
+                  <TrendingUp className="text-brand-orange-500 mr-3" size={24} /> Track Record
+                </h3>
+                <ul className="space-y-4">
+                  {agentDetails.stats.map((stat, i) => (
+                    <li key={i} className="flex items-center justify-between">
+                      <span className="text-gray-500">{stat.label}</span>
+                      <span className="text-near-black font-bold">{stat.value}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Education</h3>
-              <p className="text-gray-600 leading-relaxed">
-                We love sharing our knowledge. Our barista classes and consultations help spread the joy of specialty coffee.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team/Space Photo Gallery */}
-      <section className="py-24 bg-white">
+      {/* Values Section */}
+      <section className="py-24 md:py-32 bg-near-black text-white">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
-            title="A Space for Everyone"
-            subtitle="The Cafe"
+            title="Our Core Values"
+            subtitle="The Foundation"
             centered
           />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12">
-            <div className="reveal relative aspect-square rounded-2xl overflow-hidden shadow-md col-span-2 row-span-2">
-              <Image
-                src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1000"
-                alt="Cafe Interior"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-110"
-              />
-            </div>
-            <div className="reveal relative aspect-square rounded-2xl overflow-hidden shadow-md">
-              <Image
-                src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&q=80&w=1000"
-                alt="Barista at work"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-110"
-              />
-            </div>
-            <div className="reveal relative aspect-square rounded-2xl overflow-hidden shadow-md">
-              <Image
-                src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=600"
-                alt="Fresh coffee"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-110"
-              />
-            </div>
-            <div className="reveal relative aspect-square rounded-2xl overflow-hidden shadow-md col-span-2">
-              <Image
-                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1000"
-                alt="People in cafe"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-110"
-              />
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            {values.map((value, i) => (
+              <div key={i} className="p-8 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="w-14 h-14 bg-brand-orange-500 rounded-2xl flex items-center justify-center text-white mb-6">
+                  <value.icon size={28} />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{value.title}</h3>
+                <p className="text-gray-400 leading-relaxed text-sm">
+                  {value.description}
+                </p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 text-center">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-near-black mb-8">Work with a Pro</h2>
+          <p className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">
+            Ready to start your real estate journey with Harry? Let&apos;s discuss your goals and how we can achieve them together.
+          </p>
+          <Link href="/contact">
+            <Button size="lg" className="px-12">Contact Harry Today</Button>
+          </Link>
         </div>
       </section>
 

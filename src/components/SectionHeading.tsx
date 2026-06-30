@@ -11,7 +11,7 @@ export function SectionHeading({ title, subtitle, centered, className }: Section
   return (
     <div className={cn("mb-12", centered && "text-center", className)}>
       {subtitle && (
-        <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase text-brand-pink-600 bg-brand-pink-100 rounded-full">
+        <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase text-brand-orange-600 bg-brand-orange-100 rounded-full">
           {subtitle}
         </span>
       )}

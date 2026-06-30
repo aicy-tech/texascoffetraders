@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Texas Coffee Traders",
-  description: "Visit our East Austin cafe and roastery. Get directions, view our hours, or send us a message.",
+  title: "Contact Us",
+  description: "Get in touch with Harry Real Estate for expert guidance on buying, selling, or valuing property in Dallas, TX.",
 };
 
-export default function ContactLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
-}
+import ContactPage from "./page";
+export default ContactPage;
