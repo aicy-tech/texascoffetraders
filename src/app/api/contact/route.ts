@@ -5,7 +5,8 @@ import { z } from "zod";
 const contactSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
-  subject: z.string().min(5),
+  phone: z.string().min(10),
+  subject: z.string().min(1),
   message: z.string().min(10),
 });
 
@@ -16,17 +17,19 @@ export async function POST(req: Request) {
     const body = await req.json();
     const validatedData = contactSchema.parse(body);
 
-    const { name, email, subject, message } = validatedData;
+    const { name, email, phone, subject, message } = validatedData;
 
     const { data, error } = await resend.emails.send({
-      from: "Texas Coffee Traders <onboarding@resend.dev>",
-      to: [process.env.CONTACT_EMAIL || "info@texascoffeetraders.com"],
+      from: "Harry Real Estate <onboarding@resend.dev>",
+      to: [process.env.CONTACT_EMAIL || "leads@harryrealestate.com"],
       replyTo: email,
-      subject: `New Contact Form: ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      subject: `New Lead: ${subject} from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInterest: ${subject}\n\nMessage:\n${message}`,
     });
 
     if (error) {
+      console.error("Resend error:", error);
+      // In a real scenario, we might still want to return 200 if we log the lead to a DB
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
@@ -35,6 +38,7 @@ export async function POST(req: Request) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: error.issues }, { status: 400 });
     }
+    console.error("API error:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }

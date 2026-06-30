@@ -10,15 +10,17 @@ export default {
     extend: {
       colors: {
         brand: {
-          pink: {
-            50: "#fff5f6",
-            100: "#ffe6e9",
-            200: "#ffd1d7",
-            300: "#ffadb8",
-            400: "#ff7a8d",
-            500: "#f45b69",
-            600: "#e13b4c",
-            700: "#bd2d3c",
+          orange: {
+            50: "#fff7ed",
+            100: "#ffedd5",
+            200: "#fed7aa",
+            300: "#fdba74",
+            400: "#fb923c",
+            500: "#f97316",
+            600: "#ea580c",
+            700: "#c2410c",
+            800: "#9a3412",
+            900: "#7c2d12",
           },
         },
         "near-black": "#1a1a1a",

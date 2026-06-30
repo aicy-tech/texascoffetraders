@@ -1,0 +1,26 @@
+
+> harry-real-estate@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.1.0 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+ ✓ Ready in 1342ms
+ ○ Compiling / ...
+ ✓ Compiled / in 5.2s
+ GET / 200 in 6031ms
+ GET / 200 in 156ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1512918766671-ed6a9960a750?auto=format&fit=crop&q=80&w=1200 404
+ ○ Compiling /listings ...
+ ✓ Compiled /listings in 504ms
+ GET /listings?q=Preston+Hollow 200 in 576ms
+ ✓ Compiled /listings/[id] in 407ms
+ GET /listings/1 200 in 1476ms
+ ○ Compiling /about ...
+ ✓ Compiled /about in 996ms
+ GET /about 200 in 1299ms
+ ○ Compiling /contact ...
+ ✓ Compiled /contact in 1645ms
+ GET /contact 200 in 1763ms

@@ -1,14 +1,14 @@
-# Texas Coffee Traders - Premium Website
+# Harry Real Estate - Dallas Texas
 
-A premium, conversion-focused marketing website for Texas Coffee Traders, located in Austin, TX. Built with Next.js, Tailwind CSS, and GSAP.
+A premium, professional, lead-generation-focused website for Harry Real Estate, operating in Dallas, Texas. Built with Next.js, Tailwind CSS, and GSAP.
 
 ## Features
 
-- **Premium UI/UX:** Clean, minimal design with a Dusty Rose and White color palette.
+- **Premium UI/UX:** Clean, minimal design with a White and Warm Orange color palette.
 - **Dynamic Animations:** Smooth scroll-triggered reveals and micro-interactions powered by GSAP.
 - **Optimized Performance:** Fast load times with Next.js App Router and optimized imagery.
 - **Fully Responsive:** Seamless experience across mobile, tablet, and desktop.
-- **Interactive Menu:** Categorized and visually appealing menu layout.
+- **Property Listings:** Full listings page with advanced filtering options.
 - **Functional Contact Form:** Built with React Hook Form, Zod validation, and integrated with Resend.
 - **SEO Ready:** Complete with metadata, JSON-LD structured data, sitemap, and robots.txt.
 
@@ -33,8 +33,8 @@ A premium, conversion-focused marketing website for Texas Coffee Traders, locate
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/texas-coffee-traders-website.git
-   cd texas-coffee-traders-website
+   git clone https://github.com/aicy-tech/real-estate-demo.git
+   cd real-estate-demo
    ```
 
 2. Install dependencies:
@@ -68,22 +68,9 @@ Preview the production build:
 npm run start
 ```
 
-## Deployment
-
-The easiest way to deploy this project is via [Vercel](https://vercel.com/new):
-
-1. Push your code to GitHub.
-2. Import the project into Vercel.
-3. Configure the environment variables (specifically `RESEND_API_KEY`).
-4. Vercel will automatically build and deploy your site.
-
 ## SEO & Accessibility
 
 - Semantic HTML tags (`<nav>`, `<main>`, `<section>`, `<footer>`) for better accessibility and SEO.
 - Optimized images with descriptive `alt` text.
-- JSON-LD structured data for `LocalBusiness`.
+- JSON-LD structured data for `RealEstateAgent`.
 - Dynamic `sitemap.xml` and `robots.txt` generation.
-
-## License
-
-This project is private and intended for the specific use of Texas Coffee Traders.
